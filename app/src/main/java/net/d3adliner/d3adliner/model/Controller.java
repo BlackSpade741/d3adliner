@@ -19,7 +19,8 @@ public class Controller {
     public void addEvent(Event event){
         ArrayList<Event> events = schedule.getEventInADay(event.getEventDate());
         for(Event ev:events){
-            if(event.getStartTime().getHours()>=ev.getStartTime().getHours()&&event.getEndTime().getHours()<=ev.getEndTime().getHours()){
+            if(event.getStartTime().getHours()>=ev.getStartTime().getHours()&&event.getEndTime().getHours()<=ev.getEndTime().getHours()
+                    &&ev.getType().equals("SPARE TIME")){
                 schedule.addEvent(event);
                 schedule.removeEvent(ev);
                 NewSpareEvent(ev,event);

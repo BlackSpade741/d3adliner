@@ -26,6 +26,16 @@ public class Timev {
         this.duration = endTime.delta(startTime);
     }
 
+    public Timev(Time startTime, Time endTime, GregorianCalendar date, String title, int priorityLevel, String type) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.title = title;
+        this.priorityLevel = priorityLevel;
+        this.type = type;
+        this.eventDate = (GregorianCalendar) (date.clone());
+        this.duration = endTime.delta(startTime);
+    }
+
     public GregorianCalendar getEventDate() {
         return eventDate;
     }

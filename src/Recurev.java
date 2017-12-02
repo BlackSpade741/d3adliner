@@ -1,8 +1,11 @@
 import java.sql.Time;
+import java.util.ArrayList;
 
 public class Recurev extends Timev {
-    public Recurev(Time startTime, Time endTime, String title, int priorityLevel){
-        super(startTime, endTime, title, priorityLevel);
+    private ArrayList<Timev> events;
+    public Recurev(ArrayList<Timev> events){
+        super();
+        this.events=events;
     }
 
 }

@@ -9,28 +9,27 @@ public class Timev {
     private GregorianCalendar eventDate;
     private String title;
     private int duration;
-    // priorityLevel runs from 0 - 9 : low - high
-    private int priorityLevel;
+    private boolean isFixed;
     private String type;
 
     public Timev() {
     }
 
-    public Timev(Time startTime, Time endTime, int year, int month, int day, String title, int priorityLevel, String type) {
+    public Timev(Time startTime, Time endTime, int year, int month, int day, String title, boolean isFixed, String type) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.title = title;
-        this.priorityLevel = priorityLevel;
+        this.isFixed = isFixed;
         this.type = type;
         this.eventDate = new GregorianCalendar(year, month, day);
         this.duration = endTime.delta(startTime);
     }
 
-    public Timev(Time startTime, Time endTime, GregorianCalendar date, String title, int priorityLevel, String type) {
+    public Timev(Time startTime, Time endTime, GregorianCalendar date, String title, boolean isFixed, String type) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.title = title;
-        this.priorityLevel = priorityLevel;
+        this.isFixed = isFixed;
         this.type = type;
         this.eventDate = (GregorianCalendar) (date.clone());
         this.duration = endTime.delta(startTime);

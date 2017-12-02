@@ -1,6 +1,5 @@
 package main.java;
 
-import main.java.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -16,9 +15,9 @@ public class RecurringEvent {
     private int repeatInterval;
     private String repeatType;
     private boolean fixed;
-    private static final List<String> REPEAT_TYPES = Arrays.asList("DAYS", "MONTHS", "WEEKS");
+    private static final List<String> REPEAT_TYPES = Arrays.asList("DAYS", "MONTHS", "WEEKS", "YEARS");
 
-    private List<Timev> listOfEvents;
+    private List<Event> listOfEvents;
 
     public RecurringEvent(){}
 
@@ -40,21 +39,38 @@ public class RecurringEvent {
     }
 
     private void generateEvents(){
+        GregorianCalendar curDate = (GregorianCalendar)startDate.clone();
+        while (curDate.compareTo(endDate) <= 0){
+            if (repeatType.equals("MONTHS")){
+                switch(startDate.get(Calendar.DAY_OF_MONTH)){
+                    case 29:
+                    case 30:
+                        if(curDate.get(Calendar.MONTH) == 2) continue;
+                        break;
+                    case 31:
+                        if(Arrays.asList(2, 4, 6, 9, 11).contains(curDate.get(Calendar.MONTH)))continue;
+                        break;
+                }
+            }
+            Event event = new Event(startTime, endTime, curDate, title, fixed, type);
+            listOfEvents.add(event);
+            curDate.add(getIntRepeatType(), repeatInterval);
+        }
+    }
+
+    private int getIntRepeatType(){
         switch(repeatType){
             case "DAYS":
-
-                break;
+                return Calendar.DAY_OF_YEAR;
             case "WEEKS":
-                break;
+                return Calendar.WEEK_OF_YEAR;
             case "MONTHS":
-                break;
+                return Calendar.MONTH;
+            case "YEARS":
+                return Calendar.YEAR;
             default:
                 throw new IllegalArgumentException("Illegal repeat type");
         }
-        GregorianCalendar curDate = (GregorianCalendar)startDate.clone();
-        while (curDate.compareTo(endDate) <= 0){
-            Timev event = new Timev(startTime, endTime, curDate, title, fixed, type);
-            listOfEvents.add(event);
-        }
     }
+
 }

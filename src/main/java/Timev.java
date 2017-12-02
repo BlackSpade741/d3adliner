@@ -42,4 +42,8 @@ public class Timev {
     public int getDuration() {
         return duration;
     }
+    public Time getStartTime(){
+        return startTime;
+    }
+    public Time getEndTime(){return endTime;}
 }

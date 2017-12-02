@@ -7,12 +7,12 @@ public class Controller {
     private SmartPlanner Planner;
     private Timeline schedule;
     public Controller() {
+        this.schedule = new Timeline();
+        this.Planner = new SmartPlanner(this,schedule);
+        Planner.Plan();
     }
 
-    public void planSchedule(Timeline schedule) {
-    }
 
-    ;
 
     public void adjustSchedule(Timeline schedule) {
     }

@@ -11,7 +11,7 @@ public class Event {
     private int duration;
     private boolean isFixed;
     private String type;
-
+    private int year,month,day;
     public Event() {
     }
 
@@ -21,6 +21,9 @@ public class Event {
         this.title = title;
         this.isFixed = isFixed;
         this.type = type;
+        this.year=year;
+        this.month=month;
+        this.day=day;
         this.eventDate = new GregorianCalendar(year, month, day);
         this.duration = endTime.delta(startTime);
     }
@@ -45,4 +48,7 @@ public class Event {
         return startTime;
     }
     public Time getEndTime(){return endTime;}
+    public int[] getNumDate(){
+        return new int[]{year,month,day};
+    }
 }

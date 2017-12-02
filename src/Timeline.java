@@ -7,5 +7,7 @@ public class Timeline{
     public Timeline(){
         events = new ArrayList<Timev>();
     }
-
+    public void addEvent(Timev event){
+        events.add(event);
+    }
 }

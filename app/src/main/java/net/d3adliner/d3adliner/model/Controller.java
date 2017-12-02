@@ -27,23 +27,32 @@ public class Controller {
         }
     }
     public void NewSpareEvent(Event OSpare,Event event){
-        if(!(event.getStartTime().getHours()==OSpare.getStartTime().getHours()){
+        Event Nspare=null;
+        Event Nspare2 = null;
             if(event.getStartTime().getHours()==OSpare.getStartTime().getHours()) {
                 Time start = event.getEndTime();
                 Time end  = OSpare.getEndTime();
                 int[] date = event.getNumDate();
-                Event Nspare = new Event(start,end,date[0],date[1],date[2],"SPARE TIME",false,"SPARE TIME")
+                Nspare = new Event(start,end,date[0],date[1],date[2],"SPARE TIME",false,"SPARE TIME");
             }
-            else {
+            else if(event.getEndTime().getHours()==OSpare.getEndTime().getHours()){
                 Time start = OSpare.getStartTime();
                 Time end  = event.getStartTime();
                 int[] date = event.getNumDate();
-                Event Nspare = new Event(start,end,date[0],date[1],date[2],"SPARE TIME",false,"SPARE TIME")
+                Nspare = new Event(start,end,date[0],date[1],date[2],"SPARE TIME",false,"SPARE TIME");
             }
+            else{
+                Time start = OSpare.getStartTime();
+                Time end  = event.getStartTime();
+                int[] date = event.getNumDate();
+                Nspare = new Event(start,end,date[0],date[1],date[2],"SPARE TIME",false,"SPARE TIME");
+                schedule.addEvent(Nspare);
+                start = event.getEndTime();
+                end  = OSpare.getEndTime();
+                Nspare = new Event(start,end,date[0],date[1],date[2],"SPARE TIME",false,"SPARE TIME");
+            }
+        schedule.addEvent(Nspare);
         }
-    }
-}
-
     public ArrayList<AssignmentStages> createStages() {
         return null;
     }

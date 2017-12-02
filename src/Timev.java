@@ -6,6 +6,8 @@ public class Timev{
     private String title;
     // priorityLevel runs from 0 - 9 : low - high
     private  int priorityLevel;
+    public Timev(){}
+
     public Timev(Time startTime, Time endTime,String title, int priorityLevel){
         this.startTime = startTime;
         this.endTime = endTime;

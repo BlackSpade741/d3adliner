@@ -7,4 +7,5 @@ public class SmartPlanner {
         this.controller = controller;
         this.schedule = schedule;
     }
+    public void Plan(){}
 }

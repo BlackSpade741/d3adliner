@@ -3,7 +3,7 @@ package net.d3adliner.d3adliner.model;
 import java.util.GregorianCalendar;
 
 public class Event {
-    private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD"};
+    private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD","REST","COMMUTE"};
     private Time startTime;
     private Time endTime;
     private GregorianCalendar eventDate;
@@ -11,7 +11,7 @@ public class Event {
     private int duration;
     private boolean isFixed;
     private String type;
-
+    private int year,month,day;
     public Event() {
     }
 
@@ -21,6 +21,9 @@ public class Event {
         this.title = title;
         this.isFixed = isFixed;
         this.type = type;
+        this.year=year;
+        this.month=month;
+        this.day=day;
         this.eventDate = new GregorianCalendar(year, month, day);
         this.duration = endTime.delta(startTime);
     }
@@ -45,4 +48,8 @@ public class Event {
         return startTime;
     }
     public Time getEndTime(){return endTime;}
+    public int[] getNumDate(){
+        return new int[]{year,month,day};
+    }
+    public String getType(){return type;}
 }

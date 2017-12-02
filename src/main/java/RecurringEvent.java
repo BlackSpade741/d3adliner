@@ -39,6 +39,7 @@ public class RecurringEvent {
     }
 
     private void generateEvents(){
+        listOfEvents = new ArrayList<>();
         GregorianCalendar curDate = (GregorianCalendar)startDate.clone();
         while (curDate.compareTo(endDate) <= 0){
             if (repeatType.equals("MONTHS")){

@@ -3,7 +3,7 @@ package net.d3adliner.d3adliner.model;
 import java.util.GregorianCalendar;
 
 public class Event {
-    private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD"};
+    private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD","REST","COMMUTE"};
     private Time startTime;
     private Time endTime;
     private GregorianCalendar eventDate;

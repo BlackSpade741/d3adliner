@@ -1,6 +1,7 @@
 package net.d3adliner.d3adliner.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Timeline {
@@ -15,8 +16,12 @@ public class Timeline {
         this.endDate = endDate;
         long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
         int diffInDays = (int) ((endDate.getTimeInMillis() - startDate.getTimeInMillis())/ DAY_IN_MILLIS );
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
         for(int i=1;i<=diffInDays;i++){
-
+            events.add(new Event(new Time("0000"),new Time("2400"),new GregorianCalendar(year,month,i),
+                    "SPARE TIME",false,"SPARE TIME"));
         }
     }
 

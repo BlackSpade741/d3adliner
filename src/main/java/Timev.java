@@ -26,6 +26,9 @@ public class Timev {
         this.duration = endTime.delta(startTime);
     }
 
+    public GregorianCalendar getEventDate() {
+        return eventDate;
+    }
     public int getDuration() {
         return duration;
     }

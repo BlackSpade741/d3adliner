@@ -2,10 +2,10 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public class Recurev extends Timev {
-    private ArrayList<Timev> events;
-    public Recurev(ArrayList<Timev> events){
+    Time timeToRun;
+    public Recurev(Time timeToRun){
         super();
-        this.events=events;
+        this.timeToRun = timeToRun;
     }
 
 }

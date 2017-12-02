@@ -1,6 +1,7 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class Timeline {
 
@@ -26,14 +27,17 @@ public class Timeline {
         return new ArrayList<>(events);
     }
 
-    public ArrayList<Timev> getEventInADay() {
-        Double hour = 0.0;
+    public ArrayList<Timev> getEventInADay(GregorianCalendar date) {
+        int duration=0;
         ArrayList<Timev> DailyEvent = new ArrayList<>();
         for (Timev event : events) {
-            hour += event.getDuration();
-            if (hour <= 24.0) {
-                DailyEvent.add(event);
-            }
+           if(event.getEventDate().equals(date)){
+               duration+=event.getDuration();
+               DailyEvent.add(event);
+           }
+           if(duration==24*60){
+               break;
+           }
         }
         return DailyEvent;
     }

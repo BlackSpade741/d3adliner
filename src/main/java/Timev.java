@@ -1,12 +1,12 @@
 package main.java;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Timev {
     private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD"};
     private Time startTime;
     private Time endTime;
-    private Date eventDate;
+    private GregorianCalendar eventDate;
     private String title;
     private int duration;
     // priorityLevel runs from 0 - 9 : low - high
@@ -22,7 +22,7 @@ public class Timev {
         this.title = title;
         this.priorityLevel = priorityLevel;
         this.type = type;
-        this.eventDate = new Date(year, month, day);
+        this.eventDate = new GregorianCalendar(year, month, day);
         this.duration = endTime.delta(startTime);
     }
 

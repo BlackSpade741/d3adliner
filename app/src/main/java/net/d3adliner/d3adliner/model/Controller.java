@@ -7,8 +7,12 @@ public class Controller {
     private ArrayList<Reminder> reminders;
     private SmartPlanner Planner;
     private Timeline schedule;
-    public Controller() {
-        this.schedule = new Timeline();
+    private  GregorianCalendar startDate;
+    private GregorianCalendar endDate;
+    public Controller(GregorianCalendar startDate, GregorianCalendar endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.schedule = new Timeline(this.startDate,this.endDate);
         this.Planner = new SmartPlanner(this,schedule);
         Planner.Plan();
     }

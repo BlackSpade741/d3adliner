@@ -7,9 +7,17 @@ public class Timeline {
 
     private ArrayList<Event> events;
     private Event curevent;
-
-    public Timeline() {
+    private  GregorianCalendar startDate;
+    private GregorianCalendar endDate;
+    public Timeline(GregorianCalendar startDate, GregorianCalendar endDate) {
         events = new ArrayList<Event>();
+        this.startDate = startDate;
+        this.endDate = endDate;
+        long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+        int diffInDays = (int) ((endDate.getTimeInMillis() - startDate.getTimeInMillis())/ DAY_IN_MILLIS );
+        for(int i=1;i<=diffInDays;i++){
+
+        }
     }
 
     public void addEvent(Event event) {

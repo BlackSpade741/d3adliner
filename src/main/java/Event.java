@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.GregorianCalendar;
 
-public class Timev {
+public class Event {
     private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD"};
     private Time startTime;
     private Time endTime;
@@ -12,10 +12,10 @@ public class Timev {
     private boolean isFixed;
     private String type;
 
-    public Timev() {
+    public Event() {
     }
 
-    public Timev(Time startTime, Time endTime, int year, int month, int day, String title, boolean isFixed, String type) {
+    public Event(Time startTime, Time endTime, int year, int month, int day, String title, boolean isFixed, String type) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.title = title;
@@ -25,7 +25,7 @@ public class Timev {
         this.duration = endTime.delta(startTime);
     }
 
-    public Timev(Time startTime, Time endTime, GregorianCalendar date, String title, boolean isFixed, String type) {
+    public Event(Time startTime, Time endTime, GregorianCalendar date, String title, boolean isFixed, String type) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.title = title;

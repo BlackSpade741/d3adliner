@@ -3,21 +3,21 @@ package main.java;
 import java.util.ArrayList;
 
 public class AssignmentStages {
-    private ArrayList<Timev> events;
-    private ArrayList<Timev> TodoEvents;
-    private ArrayList<Timev> CompletedEvents;
+    private ArrayList<Event> events;
+    private ArrayList<Event> TodoEvents;
+    private ArrayList<Event> CompletedEvents;
     private boolean StageComplete;
 
-    public AssignmentStages(ArrayList<Timev> events) {
+    public AssignmentStages(ArrayList<Event> events) {
         this.events = events;
         this.TodoEvents = new ArrayList<>(events);
     }
 
-    public ArrayList<Timev> getEvents() {
+    public ArrayList<Event> getEvents() {
         return new ArrayList<>(events);
     }
 
-    public void CheckOffEvent(Timev event) {
+    public void CheckOffEvent(Event event) {
         TodoEvents.remove(event);
         if (TodoEvents.size() == 0) {
             StageComplete = true;

@@ -5,32 +5,32 @@ import java.util.GregorianCalendar;
 
 public class Timeline {
 
-    private ArrayList<Timev> events;
-    private Timev curevent;
+    private ArrayList<Event> events;
+    private Event curevent;
 
     public Timeline() {
-        events = new ArrayList<Timev>();
+        events = new ArrayList<Event>();
     }
 
-    public void addEvent(Timev event) {
+    public void addEvent(Event event) {
         if (events.size() == 0) {
             curevent = event;
         }
         events.add(event);
     }
 
-    public void removeEvent(Timev event) {
+    public void removeEvent(Event event) {
         events.remove(event);
     }
 
-    public ArrayList<Timev> getEvents() {
+    public ArrayList<Event> getEvents() {
         return new ArrayList<>(events);
     }
 
-    public ArrayList<Timev> getEventInADay(GregorianCalendar date) {
+    public ArrayList<Event> getEventInADay(GregorianCalendar date) {
         int duration=0;
-        ArrayList<Timev> DailyEvent = new ArrayList<>();
-        for (Timev event : events) {
+        ArrayList<Event> DailyEvent = new ArrayList<>();
+        for (Event event : events) {
            if(event.getEventDate().equals(date)){
                duration+=event.getDuration();
                DailyEvent.add(event);

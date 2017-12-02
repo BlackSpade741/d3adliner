@@ -14,6 +14,7 @@ public class Timev{
         this.title = title;
         this.priorityLevel = priorityLevel;
     }
-
-
+    public Double getDuration(){
+        return Double.parseDouble(endTime.toString())-Double.parseDouble(startTime.toString());
+    }
 }

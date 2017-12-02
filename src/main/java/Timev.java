@@ -8,7 +8,7 @@ public class Timev {
     private Time endTime;
     private Date eventDate;
     private String title;
-    private Double duration;
+    private int duration;
     // priorityLevel runs from 0 - 9 : low - high
     private int priorityLevel;
     private String type;
@@ -22,12 +22,11 @@ public class Timev {
         this.title = title;
         this.priorityLevel = priorityLevel;
         this.type = type;
-        this.duration = new Time(Double.toString(Double.parseDouble(endTime.toString()) - Double.parseDouble(startTime.toString())));
         this.eventDate = new Date(year, month, day);
         this.duration = endTime.delta(startTime);
     }
 
-    public Double getDuration() {
+    public int getDuration() {
         return duration;
     }
 }

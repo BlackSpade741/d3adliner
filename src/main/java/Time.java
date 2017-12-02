@@ -10,11 +10,11 @@ public class Time {
         hours = Double.parseDouble(time.substring(0, 2));
     }
 
-    public Double delta(Time t) {
+    public int delta(Time t) {
         double deltaMinutes = this.minutes - t.minutes;
         double deltaHours = this.hours*60 - t.hours*60;
         Double deltaTime = deltaHours+deltaMinutes;
-        return deltaTime;
+        return Integer.parseInt(deltaTime.toString());
     }
 
     public double getMinutes() {

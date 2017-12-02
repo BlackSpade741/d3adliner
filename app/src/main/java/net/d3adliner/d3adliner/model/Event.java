@@ -51,4 +51,5 @@ public class Event {
     public int[] getNumDate(){
         return new int[]{year,month,day};
     }
+    public String getType(){return type;}
 }

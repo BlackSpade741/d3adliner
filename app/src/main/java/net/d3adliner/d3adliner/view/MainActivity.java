@@ -17,10 +17,8 @@ import android.view.View;
 import net.d3adliner.deadliner.R;
 
 public abstract class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_today);
+    protected void onCreate(int activityLayout){
+        setContentView(activityLayout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -28,6 +26,7 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: add action
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -77,31 +76,10 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    public abstract boolean onNavigationItemSelected(MenuItem item);
 
-        if (id == R.id.nav_today) {
-
-        } else if (id == R.id.nav_timeline) {
-
-        } else if (id == R.id.nav_subjects) {
-
-        } else if (id == R.id.nav_todos) {
-
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_help) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    public void goToActivity(int id){
-        Intent intent;
+    protected void goToActivity(int id){
+        Intent intent = null;
         if (id == R.id.nav_today) {
             intent = new Intent(this, TodayActivity.class);
         } else if (id == R.id.nav_timeline) {
@@ -115,6 +93,7 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
         } else if (id == R.id.nav_help) {
 
         }
-
+        if (intent != null)
+            startActivity(intent);
     }
 }

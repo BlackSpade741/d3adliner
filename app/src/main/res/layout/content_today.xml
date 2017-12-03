@@ -10,8 +10,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="608dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="51dp">
 
         <ListView
             android:id="@+id/lvTodos"

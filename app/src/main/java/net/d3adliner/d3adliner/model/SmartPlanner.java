@@ -22,6 +22,6 @@ public class SmartPlanner {
     }
     public void Plan(){
         ArrayList events = schedule.getEvents();
-        events.sort((Comparator<? super T>) new CustomComparator());
+        // events.sort((Comparator<? super T>) new CustomComparator());
     }
 }

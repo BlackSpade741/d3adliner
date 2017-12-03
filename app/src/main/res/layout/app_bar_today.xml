@@ -24,7 +24,8 @@
         layout="@layout/content_today"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        tools:layout_editor_absoluteY="51dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

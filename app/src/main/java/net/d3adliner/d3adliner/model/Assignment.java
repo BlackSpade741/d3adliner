@@ -20,7 +20,7 @@ public class Assignment {
         this.name = name;
         this.dueTime=dueTime;
     }
-    public void getReminder(){
+    public void getReminder(int minutes){
         long min = dueDate.getTimeInMillis()+((long)dueTime.getHours()*60*1000*60)+
                 ((long)dueTime.getMinutes()*60*1000)-minutes;
         Date date = new Date(min);

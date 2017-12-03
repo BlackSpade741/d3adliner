@@ -33,7 +33,7 @@ public class Controller {
                 contin = false;
             }
             }
-        if (!contin) {
+        if (!contin&event.getFixed()) {
             for (Event ev : events) {
                 if (ev.getType().equals("SPARE TIME")&&ev.getStartTime().getHours()>=12.0){
                     event.setStartTime(ev.getStartTime());

@@ -23,6 +23,7 @@
             android:name="net.d3adliner.d3adliner.view.TimelineActivity"
             android:label="Timeline"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="net.d3adliner.d3adliner.view.SubjectsActivity" />
     </application>
 
 </manifest>

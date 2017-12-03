@@ -85,7 +85,7 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
         } else if (id == R.id.nav_timeline) {
             intent = new Intent(this, TimelineActivity.class);
         } else if (id == R.id.nav_subjects) {
-            // intent = new Intent(this, SubjectActivity.class);
+            intent = new Intent(this, SubjectsActivity.class);
         } else if (id == R.id.nav_todos) {
             // intent = new Intent(this, TodoActivity.class);
         } else if (id == R.id.nav_settings) {

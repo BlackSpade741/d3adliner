@@ -46,6 +46,9 @@ public class TodayActivity extends MainActivity{
         lvReminders.addHeaderView(titleReminders);
 
         // highlight today in navigation drawer & disable
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setCheckedItem(R.id.nav_today);
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

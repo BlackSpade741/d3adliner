@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="net.d3adliner.d3adliner.view.TodayActivity"
-            android:label="Today"HA HA HA HA HA
+            android:label="Today"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
             android:name="net.d3adliner.d3adliner.view.TimelineActivity"
             android:label="Timeline"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activityHA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA 
+        <activity
             android:name="net.d3adliner.d3adliner.view.SubjectsActivity"
             android:label="Subjects"/>
         <activity

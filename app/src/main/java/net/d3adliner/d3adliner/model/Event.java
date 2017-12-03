@@ -41,7 +41,7 @@ public class Event {
         getReminder(10);
     }
     public void getReminder(int minutes){
-        long min = eventDate.getTimeInMillis()-1000*60*minutes;
+        long min = eventDate.getTimeInMillis()+((long)startTime.getHours()*60*1000*60)+((long)startTime.getMinutes()*60*1000)-minutes;
         Date date = new Date(min);
         Timer t = new Timer();
         t.schedule(new Reminder(),date);

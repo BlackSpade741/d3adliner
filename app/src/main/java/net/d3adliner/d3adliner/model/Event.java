@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 import java.util.Timer;
 
 public class Event {
-    private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD","REST","COMMUTE"};
+    private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD","REST","COMMUTE","ASSIGNMENT"};
     private Time startTime;
     private Time endTime;
     private GregorianCalendar eventDate;

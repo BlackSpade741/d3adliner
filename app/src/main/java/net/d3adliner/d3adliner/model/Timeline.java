@@ -1,15 +1,28 @@
 package net.d3adliner.d3adliner.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Timeline {
 
     private ArrayList<Event> events;
     private Event curevent;
-
-    public Timeline() {
+    private  GregorianCalendar startDate;
+    private GregorianCalendar endDate;
+    public Timeline(GregorianCalendar startDate, GregorianCalendar endDate) {
         events = new ArrayList<Event>();
+        this.startDate = startDate;
+        this.endDate = endDate;
+        long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+        int diffInDays = (int) ((endDate.getTimeInMillis() - startDate.getTimeInMillis())/ DAY_IN_MILLIS );
+        int numdays= (int)((startDate.getTimeInMillis())/ DAY_IN_MILLIS);
+        Calendar cal = Calendar.getInstance();
+        int month = cal.get(Calendar.MONTH);
+        for(int i=1;i<=diffInDays;i++){
+            events.add(new Event(new Time("0000"),new Time("2400"),new GregorianCalendar(1970,0,
+                    numdays+i+1),"SPARE TIME",false,"SPARE TIME"));
+        }
     }
 
     public void addEvent(Event event) {

@@ -9,11 +9,11 @@ public class Controller {
     private Timeline schedule;
     private  GregorianCalendar startDate;
     private GregorianCalendar endDate;
-    public Controller(GregorianCalendar startDate, GregorianCalendar endDate) {
+    public Controller(GregorianCalendar startDate, GregorianCalendar endDate, ArrayList<Event> Initials) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.schedule = new Timeline(this.startDate,this.endDate);
-        this.Planner = new SmartPlanner(this,schedule);
+        this.Planner = new SmartPlanner(this,schedule,Initials);
         Planner.Plan();
     }
 

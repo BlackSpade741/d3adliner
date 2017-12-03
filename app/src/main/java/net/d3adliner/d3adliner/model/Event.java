@@ -1,6 +1,8 @@
 package net.d3adliner.d3adliner.model;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Timer;
 
 public class Event {
     private static String[] EventTypes = {"LECTURE", "SPARE TIME", "FOOD","REST","COMMUTE"};
@@ -14,7 +16,6 @@ public class Event {
     private int year,month,day;
     public Event() {
     }
-
     public Event(Time startTime, Time endTime, int year, int month, int day, String title, boolean isFixed, String type) {
         this.startTime = startTime;
         this.endTime = endTime;
@@ -26,6 +27,7 @@ public class Event {
         this.day=day;
         this.eventDate = new GregorianCalendar(year, month, day);
         this.duration = endTime.delta(startTime);
+        getReminderTEN();
     }
 
     public Event(Time startTime, Time endTime, GregorianCalendar date, String title, boolean isFixed, String type) {
@@ -36,8 +38,14 @@ public class Event {
         this.type = type;
         this.eventDate = (GregorianCalendar) (date.clone());
         this.duration = endTime.delta(startTime);
+        getReminderTEN();
     }
-
+    public void getReminderTEN(){
+        long min = eventDate.getTimeInMillis()-1000*60*10;
+        Date date = new Date(min);
+        Timer t = new Timer();
+        t.schedule(new Reminder(),date);
+    }
     public GregorianCalendar getEventDate() {
         return eventDate;
     }

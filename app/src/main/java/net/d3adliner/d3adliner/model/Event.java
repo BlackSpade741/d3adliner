@@ -40,8 +40,8 @@ public class Event {
         this.duration = endTime.delta(startTime);
         getReminderTEN();
     }
-    public void getReminderTEN(){
-        long min = eventDate.getTimeInMillis()-1000*60*10;
+    public void getReminder(int minutes){
+        long min = eventDate.getTimeInMillis()-1000*60*minutes;
         Date date = new Date(min);
         Timer t = new Timer();
         t.schedule(new Reminder(),date);

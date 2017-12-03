@@ -21,7 +21,7 @@ public class Timeline {
         int month = cal.get(Calendar.MONTH);
         for(int i=1;i<=diffInDays;i++){
             events.add(new Event(new Time("0000"),new Time("2400"),new GregorianCalendar(1970,0,
-                    numdays+i),"SPARE TIME",false,"SPARE TIME"));
+                    numdays+i+1),"SPARE TIME",false,"SPARE TIME"));
         }
     }
 

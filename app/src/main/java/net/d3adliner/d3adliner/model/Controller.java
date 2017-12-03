@@ -23,12 +23,34 @@ public class Controller {
     }
     public void addEvent(Event event){
         ArrayList<Event> events = schedule.getEventInADay(event.getEventDate());
+        boolean contin= true;
         for(Event ev:events){
             if(event.getStartTime().getHours()>=ev.getStartTime().getHours()&&event.getEndTime().getHours()<=ev.getEndTime().getHours()
-                    &&ev.getType().equals("SPARE TIME")){
+                    &&(ev.getType().equals("SPARE TIME")||!ev.getFixed())){
                 schedule.addEvent(event);
                 schedule.removeEvent(ev);
                 NewSpareEvent(ev,event);
+                contin = false;
+            }
+            }
+        if (!contin&event.getFixed()) {
+            for (Event ev : events) {
+                if (ev.getType().equals("SPARE TIME")&&ev.getStartTime().getHours()>=12.0){
+                    Time OTime = event.getStartTime();
+                    event.setStartTime(ev.getStartTime());
+                    int dur = event.getDuration()/60;
+                    int min = event.getDuration()%60;
+                    if(event.getStartTime().getHours()+dur>24.0){
+                        event.setStartTime(OTime);
+                        continue;
+                    }
+                    String t = Double.toString(event.getStartTime().getHours()+dur)+
+                            Double.toString(event.getStartTime().getMinutes()+min);
+                    event.setEndTime(new Time(t));
+                    schedule.addEvent(event);
+                    schedule.removeEvent(ev);
+                    NewSpareEvent(ev,event);
+                }
             }
         }
     }

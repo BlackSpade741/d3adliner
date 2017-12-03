@@ -55,9 +55,16 @@ public class Event {
     public Time getStartTime(){
         return startTime;
     }
+    public boolean getFixed(){return isFixed;}
     public Time getEndTime(){return endTime;}
     public int[] getNumDate(){
         return new int[]{year,month,day};
     }
     public String getType(){return type;}
+    public void setStartTime(Time newTime){
+        startTime = newTime;
+    }
+    public void setEndTime(Time newTime){
+        endTime = newTime;
+    }
 }

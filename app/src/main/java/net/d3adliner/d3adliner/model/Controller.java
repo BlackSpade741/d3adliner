@@ -36,6 +36,12 @@ public class Controller {
         if (!contin) {
             for (Event ev : events) {
                 if (ev.getType().equals("SPARE TIME")&&ev.getStartTime().getHours()>=12.0){
+                    event.setStartTime(ev.getStartTime());
+                    int dur = event.getDuration()/60;
+                    int min = event.getDuration()%60;
+                    String t = Double.toString(event.getStartTime().getHours()+dur)+
+                            Double.toString(event.getStartTime().getMinutes()+min);
+                    event.setEndTime(new Time(t));
                     schedule.addEvent(event);
                     schedule.removeEvent(ev);
                     NewSpareEvent(ev,event);

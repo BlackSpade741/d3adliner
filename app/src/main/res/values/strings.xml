@@ -12,4 +12,12 @@
     <string name="iconDescription">User Icon</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
+    <string name="title_activity_timeline">TimelineActivity</string>
+    <string name="today">Today</string>
+    <string name="timeline">Timeline</string>
+    <string name="subjects">Subjects</string>
+    <string name="todos">Todos</string>
+    <string name="more">More</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
 </resources>

@@ -10,14 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="net.d3adliner.d3adliner.view.MainActivity"
-            android:label="@string/title_activity_main"
+            android:name="net.d3adliner.d3adliner.view.TodayActivity"
+            android:label="Today"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="net.d3adliner.d3adliner.view.TimelineActivity"
+            android:label="Timeline"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

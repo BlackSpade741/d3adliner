@@ -1,22 +1,23 @@
 package net.d3adliner.d3adliner.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.design.widget.NavigationView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import net.d3adliner.deadliner.R;
 
-public abstract class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class TodayActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,9 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Set up list views
+
     }
 
     @Override
@@ -82,7 +86,7 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
         int id = item.getItemId();
 
         if (id == R.id.nav_today) {
-
+            return true;
         } else if (id == R.id.nav_timeline) {
 
         } else if (id == R.id.nav_subjects) {
@@ -98,23 +102,5 @@ public abstract class MainActivity extends AppCompatActivity implements Navigati
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void goToActivity(int id){
-        Intent intent;
-        if (id == R.id.nav_today) {
-            intent = new Intent(this, TodayActivity.class);
-        } else if (id == R.id.nav_timeline) {
-            intent = new Intent(this, TimelineActivity.class);
-        } else if (id == R.id.nav_subjects) {
-            // intent = new Intent(this, SubjectActivity.class);
-        } else if (id == R.id.nav_todos) {
-            // intent = new Intent(this, TodoActivity.class);
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_help) {
-
-        }
-
     }
 }

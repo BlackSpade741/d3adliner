@@ -27,7 +27,7 @@ public class Event {
         this.day=day;
         this.eventDate = new GregorianCalendar(year, month, day);
         this.duration = endTime.delta(startTime);
-        getReminderTEN();
+        getReminder(10);
     }
 
     public Event(Time startTime, Time endTime, GregorianCalendar date, String title, boolean isFixed, String type) {
@@ -38,7 +38,7 @@ public class Event {
         this.type = type;
         this.eventDate = (GregorianCalendar) (date.clone());
         this.duration = endTime.delta(startTime);
-        getReminderTEN();
+        getReminder(10);
     }
     public void getReminder(int minutes){
         long min = eventDate.getTimeInMillis()-1000*60*minutes;
